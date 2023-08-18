@@ -1,8 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { FiSearch } from 'react-icons/fi'
 import { BsDropletFill } from 'react-icons/bs'
 import { FaWind } from 'react-icons/fa'
 const WeatherApp = () => {
+
+    useState(() => {
+        fetch("http://api.weatherapi.com/v1/current.json?key=5bca6bccf3ce4c41a8f15340232807&q=Pune")
+            .then((response) => response.json())
+            .then((data) => console.log(data))
+            .catch((error) => console.log(error))
+    }, [])
     return (
         <div >
             <main>
