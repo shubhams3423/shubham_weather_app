@@ -1,13 +1,21 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
+import BeatLoader from "react-spinners/BeatLoader";
+
+
 import { FiSearch } from 'react-icons/fi'
 import { BsDropletFill } from 'react-icons/bs'
 import { FaWind } from 'react-icons/fa'
 const WeatherApp = () => {
-
+    const [weatherData, setWeatherData] = useState({})
+    const [isLoading, setIsLoading] = useState(false)
     useEffect(() => {
+        setIsLoading(true);
         fetch("http://api.weatherapi.com/v1/current.json?key=5bca6bccf3ce4c41a8f15340232807&q=Pune")
             .then((response) => response.json())
-            .then((data) => console.log(data))
+            .then((data) => {
+                setWeatherData(data)
+                setIsLoading(false)
+            })
             .catch((error) => console.log(error))
     }, [])
     return (
@@ -25,7 +33,10 @@ const WeatherApp = () => {
                     </div>
                     <div>
                         <div className="temperature ">
-                            <h2>28 &#8451;</h2>
+                            <h2>{isLoading ? <BeatLoader
+                                color="#252827"
+                                size={10}
+                            /> : weatherData?.current?.temp_c} &#8451;</h2>
                             <p>Scattered Clouds</p>
                         </div>
                         <div className='lastSection'>
@@ -34,7 +45,10 @@ const WeatherApp = () => {
                                     <BsDropletFill size={31} />
                                 </div>
                                 <div>
-                                    <p>51%</p>
+                                    <p>{isLoading ? <BeatLoader
+                                        color="#252827"
+                                        size={10}
+                                    /> : weatherData?.current?.humidity}%</p>
                                     <span>Humidity</span>
                                 </div>
                             </div>
@@ -43,7 +57,10 @@ const WeatherApp = () => {
                                     <FaWind size={31} />
                                 </div>
                                 <div>
-                                    <p>4.63Km/H</p>
+                                    <p>{isLoading ? <BeatLoader
+                                        color="#252827"
+                                        size={10}
+                                    /> : weatherData?.current?.wind_kph}Km/H</p>
                                     <span>Wind Speed</span>
                                 </div>
                             </div>
