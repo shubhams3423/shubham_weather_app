@@ -1,23 +1,36 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { FiSearch } from 'react-icons/fi'
 import { BsDropletFill } from 'react-icons/bs'
 import { FaWind } from 'react-icons/fa'
+
 const WeatherApp = () => {
+    const [data, setData] = useState({})
+    const [isLoading, setIsLoading] = useState(true)
 
     useEffect(() => {
+        setIsLoading(true)
         fetch("http://api.weatherapi.com/v1/current.json?key=5bca6bccf3ce4c41a8f15340232807&q=Pune")
             .then((response) => response.json())
-            .then((data) => console.log(data))
+            .then((data) => {
+                setData(data);
+                setIsLoading(false)
+
+            })
             .catch((error) => console.log(error))
     }, [])
+    console.log("data", data)
+
+
     return (
         <div >
             <main>
-                <div className="weatherApp" >
+                < div className="weatherApp" >
                     <div className="searchSection">
                         <input type="text" className='inputText' placeholder='Pune' />
+
                         <div className='searchIcon'>
                             <FiSearch size={19} />
+
                         </div>
                     </div>
                     <div >
@@ -25,7 +38,7 @@ const WeatherApp = () => {
                     </div>
                     <div>
                         <div className="temperature ">
-                            <h2>28 &#8451;</h2>
+                            <h2>{isLoading ? "loading" : data?.current?.temp_c} &#8451;</h2>
                             <p>Scattered Clouds</p>
                         </div>
                         <div className='lastSection'>
@@ -34,7 +47,7 @@ const WeatherApp = () => {
                                     <BsDropletFill size={31} />
                                 </div>
                                 <div>
-                                    <p>51%</p>
+                                    <p>{data?.current?.humidity}%</p>
                                     <span>Humidity</span>
                                 </div>
                             </div>
@@ -43,15 +56,16 @@ const WeatherApp = () => {
                                     <FaWind size={31} />
                                 </div>
                                 <div>
-                                    <p>4.63Km/H</p>
+                                    {/* <p>{weatherData.wind_kph}Km/H</p> */}
                                     <span>Wind Speed</span>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </main>
-        </div>
+
+            </main >
+        </div >
     )
 }
 
