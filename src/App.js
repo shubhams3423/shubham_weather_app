@@ -1,7 +1,7 @@
 
 import './App.css';
 import WeatherApp from './components/WeatherApp';
-
+import Test from "./components/TestObject"
 function App() {
   fetch("http://api.weatherapi.com/v1/current.json?key=5bca6bccf3ce4c41a8f15340232807&q=Pune")
     .then((response) => response.json())
@@ -10,6 +10,7 @@ function App() {
   return (
     <div className="App">
       <WeatherApp />
+      {/* <Test /> */}
     </div>
   );
 }
