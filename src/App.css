@@ -25,14 +25,23 @@ body {
   margin: 1rem;
 }
 
+.searchSection {
+  display: flex;
+  align-items: center;
+}
+
 .inputText {
   background-color: #62d3d36b;
   width: 100%;
   border-radius: 10px;
-  padding: 4px 10px;
+  padding: 9px 10px;
   border: 0px;
   font-size: 18px;
   outline: none;
+}
+
+.weatherImg {
+  width: 100%;
 }
 
 .searchIcon {
@@ -48,6 +57,10 @@ body {
 }
 
 /* Main part  */
+.temperature {
+  text-align: center;
+}
+
 .temperature h2 {
   font-weight: 800;
   font-size: 3rem;
@@ -60,16 +73,33 @@ body {
   color: #000000c9
 }
 
-.endSection {
+.lastSection {
+  display: flex;
+  justify-content: space-between;
   margin-top: 2rem;
+
 }
 
-.endSection p {
+.lastSection p {
   margin: 0px;
-  font-size: 22px;
+  font-size: 1.5rem;
 }
 
-@media screen and (max-width:400px) {
+.weatherSection {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.weatherSection p {
+  font-weight: 600;
+}
+
+.weatherSection span {
+  font-weight: 500;
+}
+
+@media screen and (max-width:460px) {
   .weatherApp {
     width: auto;
   }
