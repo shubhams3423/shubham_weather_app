@@ -10,7 +10,7 @@ const WeatherApp = () => {
     const [isLoading, setIsLoading] = useState(false)
     useEffect(() => {
         setIsLoading(true);
-        fetch("http://api.weatherapi.com/v1/current.json?key=5bca6bccf3ce4c41a8f15340232807&q=Pune")
+        fetch("https://api.weatherapi.com/v1/current.json?key=5bca6bccf3ce4c41a8f15340232807&q=Pune")
             .then((response) => response.json())
             .then((data) => {
                 setWeatherData(data)
