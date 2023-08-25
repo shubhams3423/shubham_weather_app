@@ -15,6 +15,7 @@ body {
   justify-content: center;
   align-items: center;
   background-color: black;
+  font-family: sans-serif;
 }
 
 .weatherApp {
@@ -57,36 +58,89 @@ body {
 }
 
 /* Main part  */
-.temperature {
-  text-align: center;
-}
 
-.temperature h2 {
+
+
+.tempSubDiv {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+  gap: 5px;
+}
+
+.tempSubDiv span {
   font-weight: 800;
   font-size: 3rem;
   margin: 0px;
 }
 
-.temperature p {
-  font-weight: 500;
-  font-size: 1.2rem;
-  color: #000000c9
+.subMainSection {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.myLocation button {
+  padding: 4px 6px;
+  border-radius: 2px;
+  border: 1px solid black;
+  cursor: pointer;
 }
 
 .lastSection {
   display: flex;
   justify-content: space-between;
-  margin-top: 2rem;
+  margin-top: 3rem;
+}
+
+.h2-removeErrorSymbol {
+  font-weight: 800;
+  font-size: 3rem;
+  margin: 0px;
+  color: black;
 
 }
 
-.lastSection p {
+.h2-displayErrorSymbol {
+  font-weight: 800;
+  font-size: 3rem;
   margin: 0px;
-  font-size: 1.5rem;
+  opacity: 60%;
+  color: rgb(67, 65, 65);
+}
+
+.h3-removeErrorSymbol {
+  display: inline;
+  font-size: 27px;
+  color: black;
+
+}
+
+.h3-displayErrorSymbol {
+  display: inline;
+  font-size: 27px;
+  opacity: 70%;
+  color: gray;
+}
+
+.tempSub-p-removeErrorSymbol {
+  text-align: center;
+  font-weight: 500;
+  font-size: 1.3rem;
+  color: #040404c2;
+}
+
+.tempSub-p-displayErrorSymbol {
+  text-align: center;
+  font-weight: 500;
+  font-size: 1.2rem;
+  opacity: 70%;
+  color: #726f6f;
+}
+
+
+.drop {
+  font-size: 2.2rem;
 }
 
 .weatherSection {
@@ -96,14 +150,14 @@ body {
 }
 
 .weatherSection p {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-weight: 600;
+  font-size: 16px;
+  font-weight: 500;
 }
 
+
 .weatherSection span {
-  font-weight: 500;
+  font-weight: 700;
+  font-size: 19px;
 }
 
 @media screen and (max-width:460px) {
