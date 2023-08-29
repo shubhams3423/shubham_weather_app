@@ -35,10 +35,18 @@ body {
   background-color: #62d3d36b;
   width: 100%;
   border-radius: 10px;
-  padding: 9px 10px;
+  padding: 9px 29px 9px 10px;
+  ;
   border: 0px;
   font-size: 18px;
   outline: none;
+}
+
+.location-icon {
+  position: relative;
+  right: 21px;
+  width: 0px;
+  cursor: pointer;
 }
 
 .weatherImg {
@@ -73,10 +81,10 @@ body {
 .subMainSection {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
 }
 
-.myLocation button {
+.myLocation {
   padding: 4px 6px;
   border-radius: 2px;
   border: 1px solid black;
