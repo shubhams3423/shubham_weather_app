@@ -6,7 +6,7 @@ import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
 import BeatLoader from "react-spinners/BeatLoader";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import HumidityIcons from "./HumidityIcons";
+import IconContainer from "./IconContainer";
 const WeatherApp = () => {
   const [weatherData, setWeatherData] = useState({});
   const [isLoading, setIsLoading] = useState(false);
@@ -140,7 +140,7 @@ const WeatherApp = () => {
                   {isLoading ? (
                     <BeatLoader color="#252827" size={10} />
                   ) : (
-                    <HumidityIcons weatherData={weatherData} />
+                    <IconContainer weatherData={weatherData} />
                   )}
                 </div>
                 <div>
