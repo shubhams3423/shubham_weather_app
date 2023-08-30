@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faDroplet } from "@fortawesome/free-solid-svg-icons";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { faWind } from "@fortawesome/free-solid-svg-icons";
 import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
 import BeatLoader from "react-spinners/BeatLoader";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import HumidityIcons from "./HumidityIcons";
 const WeatherApp = () => {
   const [weatherData, setWeatherData] = useState({});
   const [isLoading, setIsLoading] = useState(false);
@@ -28,7 +28,7 @@ const WeatherApp = () => {
         }
       })
       .catch((error) => {
-        toast.error("Network error");
+        toast.error("Error fetching weather data");
         console.log(error);
       });
   }, [saveInputText]);
@@ -42,7 +42,7 @@ const WeatherApp = () => {
     if (inputName !== "") setSaveInputText(inputName);
   };
 
-  const HandleInputLocationInfo = (lat, long) => {
+  const handleInputLocationInfo = (lat, long) => {
     fetch(
       `https://api.weatherapi.com/v1/current.json?key=5bca6bccf3ce4c41a8f15340232807&q=${lat},${long}`
     )
@@ -55,11 +55,14 @@ const WeatherApp = () => {
   const handleLocation = () => {
     navigator.geolocation.getCurrentPosition(
       (position) =>
-        HandleInputLocationInfo(
+        handleInputLocationInfo(
           position.coords.latitude,
           position.coords.longitude
         ),
-      (error) => console.log(error)
+      (error) => {
+        toast.error("Error fetching location");
+        console.log(error);
+      }
     );
   };
 
@@ -112,7 +115,7 @@ const WeatherApp = () => {
                       weatherData?.current?.temp_c
                     )}{" "}
                   </h2>
-                  <span>&#8451;</span>
+                  <span>&deg;C</span>
                 </div>
                 <p
                   className={
@@ -136,15 +139,8 @@ const WeatherApp = () => {
                 <div>
                   {isLoading ? (
                     <BeatLoader color="#252827" size={10} />
-                  ) : weatherData.error ? (
-                    "?"
-                  ) : weatherData?.current?.humidity <= 55 ? (
-                    <FontAwesomeIcon icon={faDroplet} className="dropIcon-1" />
-                  ) : weatherData?.current?.humidity <= 65 &&
-                    weatherData?.current?.humidity > 55 ? (
-                    <FontAwesomeIcon icon={faDroplet} className="dropIcon-2" />
                   ) : (
-                    <FontAwesomeIcon icon={faDroplet} className="dropIcon-3" />
+                    <HumidityIcons weatherData={weatherData} />
                   )}
                 </div>
                 <div>
