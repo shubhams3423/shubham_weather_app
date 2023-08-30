@@ -1,8 +1,8 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDroplet } from "@fortawesome/free-solid-svg-icons";
-
-const Test = ({ weatherData }) => {
+ 
+const IconContainer = ({ weatherData }) => {
   return (
     <div>
       {weatherData.error ? (
@@ -17,6 +17,7 @@ const Test = ({ weatherData }) => {
       )}
     </div>
   );
-};
-
-export default Test;
+}; 
+export default IconContainer;
+ 
+ 
