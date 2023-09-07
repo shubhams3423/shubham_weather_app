@@ -14,55 +14,104 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: black;
-  font-family: sans-serif;
+   font-family: sans-serif;
 }
 
-.weatherApp {
-  background-color: #ffff;
+.main-light {  
+  width: 100vw; 
+  height: 100vh;
+  background-color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;  
+}
+.main-dark {  
+  width: 100vw; 
+  height:100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white; 
+  color: white; 
+}
+.weatherApp{
   padding: 2rem;
   border-radius: 10px;
   width: 385px;
   margin: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.3rem;
 }
-
+.weatherApp-light {
+  background-color: #ffff; 
+}
+.weatherApp-dark {
+  background-color: #0E2954; 
+} 
 .searchSection {
   display: flex;
   align-items: center;
 }
-
-.inputText {
-  background-color: #62d3d36b;
+.inputText{
   width: 100%;
   border-radius: 10px;
-  padding: 9px 29px 9px 10px;
-  ;
+  padding: 9px 29px 9px 10px; 
   border: 0px;
   font-size: 18px;
   outline: none;
 }
-
+.inputText-dark {
+  background-color: white; 
+}
+.inputText-light {
+  background-color: #62d3d36b; 
+}
+.location-icon-dark{
+color: black;
+}
 .location-icon {
   position: relative;
   right: 21px;
   width: 0px;
   cursor: pointer;
 }
-
+.topSection{
+  display: inline-block;
+    width: 92%;
+}
+ 
+.iconSection{
+  cursor: pointer;
+    margin-left: 0.7rem;
+    display: inline-block
+}
+ 
+ 
+.moonIcon{
+  color: white;
+}
 .weatherImg {
   width: 100%;
+  height: 100%;
 }
-
-.searchIcon {
+.searchIcon{
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #62d3d361;
+  color: black;
   margin-left: 1rem;
   border-radius: 50%;
-  width: 3rem;
-  height: 2.5rem;
+  width: 50px;
+  height: 37px;
   cursor: pointer;
+}
+ 
+.searchIcon-light { 
+  background-color: #62d3d361;
+}
+.searchIcon-dark { 
+  background-color: white;
 }
 
 .tempSubDiv {
@@ -94,15 +143,18 @@ body {
 .lastSection {
   display: flex;
   justify-content: space-between;
-  margin-top: 3rem;
+  margin-top: 2.3rem;
 }
-
-.h2-removeErrorSymbol {
+.h2-removeErrorSymbol{
   font-weight: 800;
   font-size: 3rem;
   margin: 0px;
-  color: black;
-
+}
+.h2-removeErrorSymbol-light { 
+  color: black; 
+}
+.h2-removeErrorSymbol-dark { 
+  color: white; 
 }
 
 .h2-displayErrorSymbol {
@@ -112,12 +164,15 @@ body {
   opacity: 60%;
   color: rgb(67, 65, 65);
 }
-
-.h3-removeErrorSymbol {
+.h3-removeErrorSymbol{
   display: inline;
   font-size: 27px;
-  color: black;
-
+}
+.h3-removeErrorSymbol-light { 
+  color: black; 
+}
+.h3-removeErrorSymbol-dark { 
+  color: white; 
 }
 
 .h3-displayErrorSymbol {
@@ -126,13 +181,17 @@ body {
   opacity: 70%;
   color: gray;
 }
-
+.tempSub-p-removeErrorSymbol-light{
+  color: #040404c2;
+}
+.tempSub-p-removeErrorSymbol-dark{
+  color: #ffffff9c;
+}
 .tempSub-p-removeErrorSymbol {
   text-align: center;
   font-weight: 500;
   font-size: 1.3rem;
-  color: #040404c2;
-}
+ }
 
 .tempSub-p-displayErrorSymbol {
   text-align: center;
@@ -141,23 +200,36 @@ body {
   opacity: 70%;
   color: #726f6f;
 }
-
-
-.dropIcon-1 {
-  font-size: 2.2rem;
-  color: rgba(96, 144, 226, 0.374)
+ 
+.imageContainer{
+  height: 17rem;
+    width: 17rem;
+    margin: auto;
 }
 
-.dropIcon-2 {
-  font-size: 2.2rem;
-  color: rgb(65, 95, 147)
+ 
+.dropIcon-1-dark,
+.dropIcon-2-dark,
+.dropIcon-3-dark{
+color: white;
+ font-size: 2.2rem;
 }
-
-.dropIcon-3 {
-  font-size: 2.2rem;
-  color: rgb(23, 91, 208)
+.dropIcons{
+  font-size: 2.5rem;
+  
 }
-
+.dropIcon-1-light { 
+  color:rgba(132, 169, 233, 0.916)
+}
+.dropIcon-2-light { 
+     color:rgb(71, 125, 218) 
+}
+.dropIcon-3-light { 
+  color: rgb(0, 34, 94)
+}
+.windIcon{
+  font-size: 2.5rem;
+}
 .weatherSection {
   display: flex;
   align-items: center;
@@ -167,9 +239,7 @@ body {
 .weatherSection p {
   font-size: 16px;
   font-weight: 500;
-}
-
-
+} 
 .weatherSection span {
   font-weight: 700;
   font-size: 19px;
