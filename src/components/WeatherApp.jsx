@@ -1,17 +1,27 @@
 import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
-import { faWind } from "@fortawesome/free-solid-svg-icons";
 import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
 import BeatLoader from "react-spinners/BeatLoader";
+import { BsFillSunFill } from "react-icons/bs";
+import { BiSolidMoon } from "react-icons/bi";
+import { HiMenu } from "react-icons/hi";
+import { RxCross2 } from "react-icons/rx";
+import { BiLogoGmail } from "react-icons/bi";
+import { AiFillGithub } from "react-icons/ai";
+import { AiFillLinkedin } from "react-icons/ai";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import IconContainer from "./IconContainer";
+import HumidityIconsContainer from "./HumidityIconsContainer";
+import WindIconContainer from "./WindIconContainer";
+import WeatherImageContainer from "./WeatherImageContainer";
 const WeatherApp = () => {
   const [weatherData, setWeatherData] = useState({});
   const [isLoading, setIsLoading] = useState(false);
   const [inputName, setInputName] = useState("Pune");
   const [saveInputText, setSaveInputText] = useState("Pune");
+  const [theme, setTheme] = useState("light");
+  const [menu, setMenu] = useState("none");
   useEffect(() => {
     setIsLoading(true);
     fetch(
@@ -65,36 +75,105 @@ const WeatherApp = () => {
       }
     );
   };
-
+  const handleMenuSection = () => {
+    menu === "none" ? setMenu("block") : setMenu("none");
+  };
   return (
     <div>
-      <main>
-        <div className="weatherApp">
-          <div className="searchSection">
-            <input
-              type="text"
-              className="inputText"
-              placeholder="Search..."
-              value={inputName}
-              onChange={(e) => setInputName(e.target.value)}
-              onKeyDown={handleInputBoxKeydown}
-            />
-            <div className="location-icon">
-              <FontAwesomeIcon icon={faLocationDot} onClick={handleLocation} />
+      <main className={`main-${theme}`}>
+        <div className={`weatherApp-${theme} weatherApp`}>
+          <div
+            className={` hamburgerMenu-${theme} ${
+              menu === "none" ? "hamburgerMenuHide" : "hamburgerMenuShow"
+            } hamburgerMenu`}
+          >
+            <div className="darkLightModeMainContainer">
+              <div className="darkLightModeContainer">
+                <h2>{theme === "light" ? "Light" : "Dark"} Mode</h2>
+                <div className="darkLightModeIcon">
+                  {theme === "light" ? (
+                    <BsFillSunFill
+                      className="sunIcon"
+                      onClick={() => {
+                        setTheme("dark");
+                      }}
+                    />
+                  ) : (
+                    <BiSolidMoon
+                      className="moonIcon"
+                      onClick={() => {
+                        setTheme("light");
+                      }}
+                    />
+                  )}
+                </div>
+              </div>
+              <div className="contactSection">
+                <div className="socialMediaIconContainer">
+                  <a href="https://github.com/shubhams3423/shubham_weather_app">
+                    <AiFillGithub
+                      className={`socialMediaIcons-${theme} socialMediaIcons `}
+                    />
+                  </a>
+                </div>
+                <div className="socialMediaIconContainer">
+                  <a href="mailto :shubham1844s@gmail.com" target="_blank">
+                    <BiLogoGmail
+                      className={`socialMediaIcons-${theme} socialMediaIcons`}
+                    />
+                  </a>
+                </div>
+                <div className="socialMediaIconContainer">
+                  <a href="/">
+                    <AiFillLinkedin
+                      className={`socialMediaIcons-${theme} socialMediaIcons`}
+                    />
+                  </a>
+                </div>
+              </div>
             </div>
-            <div className="searchIcon">
-              <FontAwesomeIcon
-                icon={faMagnifyingGlass}
-                onClick={onClickRenderWeather}
-              />
+          </div>
+          <div className="TopContainer">
+            <div className={`hamburger-${menu} Menu`}>
+              {menu === "block" ? (
+                <RxCross2 onClick={handleMenuSection} />
+              ) : (
+                <HiMenu onClick={handleMenuSection} />
+              )}
+            </div>
+            <div className="topSection">
+              <div className="inputSection">
+                <input
+                  type="text"
+                  className={`inputText-${theme} inputText`}
+                  placeholder="Search..."
+                  value={inputName}
+                  onChange={(e) => setInputName(e.target.value)}
+                  onKeyDown={handleInputBoxKeydown}
+                />
+                <div className={`location-icon-${theme} location-icon`}>
+                  <FontAwesomeIcon
+                    icon={faLocationDot}
+                    onClick={handleLocation}
+                  />
+                </div>
+                <div className={`searchIcon-${theme} searchIcon`}>
+                  <FontAwesomeIcon
+                    icon={faMagnifyingGlass}
+                    onClick={onClickRenderWeather}
+                  />
+                </div>
+              </div>
             </div>
           </div>
           <div>
-            <img
-              src="https://previews.123rf.com/images/martialred/martialred1702/martialred170200035/71710170-cloudy-or-cloud-partly-blocking-the-sun-flat-color-vector-icon-for-weather-apps-and-websites.jpg"
-              alt="weather Img"
-              className=" weatherImg"
-            />
+            {isLoading ? (
+              <BeatLoader color="#252827" size={10} />
+            ) : (
+              <WeatherImageContainer
+                weatherText={weatherData?.current?.condition?.text}
+              />
+            )}
           </div>
           <div>
             <div className="subMainSection">
@@ -104,7 +183,7 @@ const WeatherApp = () => {
                     className={
                       weatherData.error
                         ? "h2-displayErrorSymbol"
-                        : "h2-removeErrorSymbol"
+                        : `h2-removeErrorSymbol-${theme} h2-removeErrorSymbol `
                     }
                   >
                     {isLoading ? (
@@ -121,7 +200,7 @@ const WeatherApp = () => {
                   className={
                     weatherData.error
                       ? "tempSub-p-displayErrorSymbol"
-                      : "tempSub-p-removeErrorSymbol"
+                      : `tempSub-p-removeErrorSymbol-${theme} tempSub-p-removeErrorSymbol`
                   }
                 >
                   {isLoading ? (
@@ -136,11 +215,16 @@ const WeatherApp = () => {
             </div>
             <div className="lastSection">
               <div className="weatherSection">
-                <div>
+                <div className="dropIcons">
                   {isLoading ? (
                     <BeatLoader color="#252827" size={10} />
+                  ) : weatherData.error ? (
+                    "?"
                   ) : (
-                    <IconContainer weatherData={weatherData} />
+                    <HumidityIconsContainer
+                      humidity={weatherData?.current?.humidity}
+                      theme={theme}
+                    />
                   )}
                 </div>
                 <div>
@@ -148,7 +232,7 @@ const WeatherApp = () => {
                     className={
                       weatherData.error
                         ? "h3-displayErrorSymbol"
-                        : "h3-removeErrorSymbol"
+                        : `h3-removeErrorSymbol-${theme} h3-removeErrorSymbol`
                     }
                   >
                     {isLoading ? (
@@ -165,15 +249,23 @@ const WeatherApp = () => {
                 </div>
               </div>
               <div className="weatherSection">
-                <div>
-                  <FontAwesomeIcon icon={faWind} size="2xl" />
+                <div className="windIcon">
+                  {isLoading ? (
+                    <BeatLoader color="#252827" size={10} />
+                  ) : weatherData.error ? (
+                    "?"
+                  ) : (
+                    <WindIconContainer
+                      windSpeed={weatherData?.current?.wind_kph}
+                    />
+                  )}
                 </div>
                 <div>
                   <h3
                     className={
                       weatherData.error
                         ? "h3-displayErrorSymbol"
-                        : "h3-removeErrorSymbol"
+                        : `h3-removeErrorSymbol-${theme} h3-removeErrorSymbol`
                     }
                   >
                     {isLoading ? (
