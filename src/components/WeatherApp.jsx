@@ -109,21 +109,27 @@ const WeatherApp = () => {
                 </div>
               </div>
               <div className="contactSection">
-                <div className="socialMediaIconContainer">
+                <div
+                  className={`socialMediaIconContainer socialMediaIconContainer-${theme}`}
+                >
                   <a href="https://github.com/shubhams3423/shubham_weather_app">
                     <AiFillGithub
                       className={`socialMediaIcons-${theme} socialMediaIcons `}
                     />
                   </a>
                 </div>
-                <div className="socialMediaIconContainer">
+                <div
+                  className={`socialMediaIconContainer socialMediaIconContainer-${theme}`}
+                >
                   <a href="mailto :shubham1844s@gmail.com" target="_blank">
                     <BiLogoGmail
                       className={`socialMediaIcons-${theme} socialMediaIcons`}
                     />
                   </a>
                 </div>
-                <div className="socialMediaIconContainer">
+                <div
+                  className={`socialMediaIconContainer socialMediaIconContainer-${theme}`}
+                >
                   <a href="/">
                     <AiFillLinkedin
                       className={`socialMediaIcons-${theme} socialMediaIcons`}

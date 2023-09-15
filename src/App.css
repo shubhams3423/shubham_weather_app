@@ -137,23 +137,30 @@ color: black;
 .socialMediaIconContainer{
   width: 30px;
   height: 30px;
-  background-color: grey;  
-  padding: 5px;
+   padding: 5px;
   border-radius: 50%;
   display: flex;
     justify-content: center;
     align-items: center;
 }
+.socialMediaIconContainer-light{
+  background-color: black;
+}
+.socialMediaIconContainer-dark{
+  background-color: white;
+
+}
+
 .socialMediaIcons{
 font-size:23px;
   cursor: pointer;
     margin-top: 3px; 
 }
 .socialMediaIcons-dark{ 
-  color: white;
+  color: black;
  }
 .socialMediaIcons-light{ 
-  color: black;
+  color: white;
  }
 .contactSection{
   display: flex;
