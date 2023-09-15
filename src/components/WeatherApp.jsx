@@ -5,6 +5,11 @@ import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
 import BeatLoader from "react-spinners/BeatLoader";
 import { BsFillSunFill } from "react-icons/bs";
 import { BiSolidMoon } from "react-icons/bi";
+import { HiMenu } from "react-icons/hi";
+import { RxCross2 } from "react-icons/rx";
+import { BiLogoGmail } from "react-icons/bi";
+import { AiFillGithub } from "react-icons/ai";
+import { AiFillLinkedin } from "react-icons/ai";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import HumidityIconsContainer from "./HumidityIconsContainer";
@@ -16,6 +21,7 @@ const WeatherApp = () => {
   const [inputName, setInputName] = useState("Pune");
   const [saveInputText, setSaveInputText] = useState("Pune");
   const [theme, setTheme] = useState("light");
+  const [menu, setMenu] = useState("none");
   useEffect(() => {
     setIsLoading(true);
     fetch(
@@ -69,14 +75,74 @@ const WeatherApp = () => {
       }
     );
   };
-
+  const handleMenuSection = () => {
+    menu === "none" ? setMenu("block") : setMenu("none");
+  };
   return (
     <div>
       <main className={`main-${theme}`}>
         <div className={`weatherApp-${theme} weatherApp`}>
-          <div>
+          <div
+            className={` hamburgerMenu-${theme} ${
+              menu === "none" ? "hamburgerMenuHide" : "hamburgerMenuShow"
+            } hamburgerMenu`}
+          >
+            <div className="darkLightModeMainContainer">
+              <div className="darkLightModeContainer">
+                <h2>{theme === "light" ? "Light" : "Dark"} Mode</h2>
+                <div className="darkLightModeIcon">
+                  {theme === "light" ? (
+                    <BsFillSunFill
+                      className="sunIcon"
+                      onClick={() => {
+                        setTheme("dark");
+                      }}
+                    />
+                  ) : (
+                    <BiSolidMoon
+                      className="moonIcon"
+                      onClick={() => {
+                        setTheme("light");
+                      }}
+                    />
+                  )}
+                </div>
+              </div>
+              <div className="contactSection">
+                <div className="socialMediaIconContainer">
+                  <a href="https://github.com/shubhams3423/shubham_weather_app">
+                    <AiFillGithub
+                      className={`socialMediaIcons-${theme} socialMediaIcons `}
+                    />
+                  </a>
+                </div>
+                <div className="socialMediaIconContainer">
+                  <a href="mailto :shubham1844s@gmail.com" target="_blank">
+                    <BiLogoGmail
+                      className={`socialMediaIcons-${theme} socialMediaIcons`}
+                    />
+                  </a>
+                </div>
+                <div className="socialMediaIconContainer">
+                  <a href="/">
+                    <AiFillLinkedin
+                      className={`socialMediaIcons-${theme} socialMediaIcons`}
+                    />
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="TopContainer">
+            <div className={`hamburger-${menu} Menu`}>
+              {menu === "block" ? (
+                <RxCross2 onClick={handleMenuSection} />
+              ) : (
+                <HiMenu onClick={handleMenuSection} />
+              )}
+            </div>
             <div className="topSection">
-              <div className="searchSection">
+              <div className="inputSection">
                 <input
                   type="text"
                   className={`inputText-${theme} inputText`}
@@ -98,23 +164,6 @@ const WeatherApp = () => {
                   />
                 </div>
               </div>
-            </div>
-            <div className="iconSection">
-              {theme === "light" ? (
-                <BsFillSunFill
-                  className="sunIcon"
-                  onClick={() => {
-                    setTheme("dark");
-                  }}
-                />
-              ) : (
-                <BiSolidMoon
-                  className="moonIcon"
-                  onClick={() => {
-                    setTheme("light");
-                  }}
-                />
-              )}
             </div>
           </div>
           <div>

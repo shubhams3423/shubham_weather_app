@@ -1,6 +1,7 @@
 html {
   height: 100%;
   width: 100%;
+  overflow: hidden;
 }
 
 * {
@@ -8,48 +9,84 @@ html {
   padding: 0px;
 }
 
-body {
-  width: 100%;
-  height: 100%;
+body { 
   display: flex;
   justify-content: center;
   align-items: center;
    font-family: sans-serif;
 }
-
-.main-light {  
-  width: 100vw; 
+ main{
+   width: 100vw; 
   height: 100vh;
-  background-color: black;
-  display: flex;
+   display: flex;
   align-items: center;
   justify-content: center;  
+ }
+.main-light {   
+  background-color: black;
 }
 .main-dark {  
-  width: 100vw; 
-  height:100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   background-color: white; 
   color: white; 
 }
 .weatherApp{
-  padding: 2rem;
+  padding: 1.6rem;
   border-radius: 10px;
   width: 385px;
   margin: 1rem;
   display: flex;
   flex-direction: column;
   gap: 1.3rem;
+  height: 531px;
 }
+.hamburgerMenu{
+  position: absolute;
+    height: 36.4rem;
+    width: 13rem;
+    z-index: 1;
+    margin: -26px;
+    border-radius: 8px 27px 26px 8px;
+    padding: 60px 16px 16px 23px;
+    box-sizing: border-box;
+    color: white; 
+}
+.hamburgerMenuHide{
+  display: none;
+}
+.hamburgerMenuShow{
+  display: block;
+}
+.hamburgerMenu-dark{
+  background-color: black; 
+}
+.hamburgerMenu-light{
+  background-color: #0F2C59;
+}
+.hamburger-block{
+  z-index: 1;
+    margin-top: -21px;
+    margin-left: -8px;
+    color: white;
+} 
 .weatherApp-light {
-  background-color: #ffff; 
+  background-color: white; 
 }
 .weatherApp-dark {
-  background-color: #0E2954; 
-} 
-.searchSection {
+  background-color: #0e2954; 
+}
+ 
+.Menu{
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  margin-right: 10px
+}
+.TopContainer{
+display: flex;
+align-items: center;
+}
+.inputSection {
   display: flex;
   align-items: center;
 }
@@ -65,7 +102,8 @@ body {
   background-color: white; 
 }
 .inputText-light {
-  background-color: #62d3d36b; 
+   color: black;
+   background-color: #62d3d36b;
 }
 .location-icon-dark{
 color: black;
@@ -77,17 +115,51 @@ color: black;
   cursor: pointer;
 }
 .topSection{
-  display: inline-block;
-    width: 92%;
+     width: 100%;
 }
- 
-.iconSection{
+ .darkLightModeMainContainer{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+ }
+ .darkLightModeIcon{
   cursor: pointer;
-    margin-left: 0.7rem;
-    display: inline-block
+ }
+.darkLightModeContainer{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
- 
- 
+.darkLightModeContainer h2{
+  font-size: 19px;
+}
+.socialMediaIconContainer{
+  width: 30px;
+  height: 30px;
+  background-color: grey;  
+  padding: 5px;
+  border-radius: 50%;
+  display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.socialMediaIcons{
+font-size:23px;
+  cursor: pointer;
+    margin-top: 3px; 
+}
+.socialMediaIcons-dark{ 
+  color: white;
+ }
+.socialMediaIcons-light{ 
+  color: black;
+ }
+.contactSection{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+} 
 .moonIcon{
   color: white;
 }
@@ -105,22 +177,19 @@ color: black;
   width: 50px;
   height: 37px;
   cursor: pointer;
-}
- 
+} 
 .searchIcon-light { 
-  background-color: #62d3d361;
+  background-color:#62d3d36b ; 
 }
 .searchIcon-dark { 
   background-color: white;
-}
-
+} 
 .tempSubDiv {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 5px;
-}
-
+} 
 .tempSubDiv span {
   font-weight: 800;
   font-size: 3rem;
@@ -131,15 +200,13 @@ color: black;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-}
-
+} 
 .myLocation {
   padding: 4px 6px;
   border-radius: 2px;
   border: 1px solid black;
   cursor: pointer;
-}
-
+} 
 .lastSection {
   display: flex;
   justify-content: space-between;
@@ -155,8 +222,7 @@ color: black;
 }
 .h2-removeErrorSymbol-dark { 
   color: white; 
-}
-
+} 
 .h2-displayErrorSymbol {
   font-weight: 800;
   font-size: 3rem;
@@ -173,8 +239,7 @@ color: black;
 }
 .h3-removeErrorSymbol-dark { 
   color: white; 
-}
-
+} 
 .h3-displayErrorSymbol {
   display: inline;
   font-size: 27px;
@@ -205,9 +270,7 @@ color: black;
   height: 17rem;
     width: 17rem;
     margin: auto;
-}
-
- 
+} 
 .dropIcon-1-dark,
 .dropIcon-2-dark,
 .dropIcon-3-dark{
@@ -248,5 +311,8 @@ color: white;
 @media screen and (max-width:460px) {
   .weatherApp {
     width: auto;
-  }
+}
+.hamburgerMenu{
+  width: 11rem;
+}
 }
