@@ -1,0 +1,32 @@
+.contactSection{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .socialMediaIconContainer{
+    width: 30px;
+    height: 30px;
+     padding: 5px;
+    border-radius: 50%;
+    display: flex;
+      justify-content: center;
+      align-items: center;
+  }
+  .socialMediaIconContainer-light{
+    background-color: black;
+  }
+  .socialMediaIconContainer-dark{
+    background-color: white;
+  
+  }
+  .socialMediaIcons{
+    font-size:23px;
+      cursor: pointer;
+        margin-top: 3px; 
+    }
+    .socialMediaIcons-dark{ 
+      color: black;
+     }
+    .socialMediaIcons-light{ 
+      color: white;
+     }

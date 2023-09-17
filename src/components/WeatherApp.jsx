@@ -3,18 +3,14 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
 import BeatLoader from "react-spinners/BeatLoader";
-import { BsFillSunFill } from "react-icons/bs";
-import { BiSolidMoon } from "react-icons/bi";
 import { HiMenu } from "react-icons/hi";
 import { RxCross2 } from "react-icons/rx";
-import { BiLogoGmail } from "react-icons/bi";
-import { AiFillGithub } from "react-icons/ai";
-import { AiFillLinkedin } from "react-icons/ai";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import HumidityIconsContainer from "./HumidityIconsContainer";
 import WindIconContainer from "./WindIconContainer";
 import WeatherImageContainer from "./WeatherImageContainer";
+import SideBar from "./SideBar";
 const WeatherApp = () => {
   const [weatherData, setWeatherData] = useState({});
   const [isLoading, setIsLoading] = useState(false);
@@ -22,6 +18,7 @@ const WeatherApp = () => {
   const [saveInputText, setSaveInputText] = useState("Pune");
   const [theme, setTheme] = useState("light");
   const [menu, setMenu] = useState("none");
+
   useEffect(() => {
     setIsLoading(true);
     fetch(
@@ -62,6 +59,7 @@ const WeatherApp = () => {
         setInputName(data.location.name);
       });
   };
+
   const handleLocation = () => {
     navigator.geolocation.getCurrentPosition(
       (position) =>
@@ -87,57 +85,7 @@ const WeatherApp = () => {
               menu === "none" ? "hamburgerMenuHide" : "hamburgerMenuShow"
             } hamburgerMenu`}
           >
-            <div className="darkLightModeMainContainer">
-              <div className="darkLightModeContainer">
-                <h2>{theme === "light" ? "Light" : "Dark"} Mode</h2>
-                <div className="darkLightModeIcon">
-                  {theme === "light" ? (
-                    <BsFillSunFill
-                      className="sunIcon"
-                      onClick={() => {
-                        setTheme("dark");
-                      }}
-                    />
-                  ) : (
-                    <BiSolidMoon
-                      className="moonIcon"
-                      onClick={() => {
-                        setTheme("light");
-                      }}
-                    />
-                  )}
-                </div>
-              </div>
-              <div className="contactSection">
-                <div
-                  className={`socialMediaIconContainer socialMediaIconContainer-${theme}`}
-                >
-                  <a href="https://github.com/shubhams3423/shubham_weather_app">
-                    <AiFillGithub
-                      className={`socialMediaIcons-${theme} socialMediaIcons `}
-                    />
-                  </a>
-                </div>
-                <div
-                  className={`socialMediaIconContainer socialMediaIconContainer-${theme}`}
-                >
-                  <a href="mailto :shubham1844s@gmail.com" target="_blank">
-                    <BiLogoGmail
-                      className={`socialMediaIcons-${theme} socialMediaIcons`}
-                    />
-                  </a>
-                </div>
-                <div
-                  className={`socialMediaIconContainer socialMediaIconContainer-${theme}`}
-                >
-                  <a href="/">
-                    <AiFillLinkedin
-                      className={`socialMediaIcons-${theme} socialMediaIcons`}
-                    />
-                  </a>
-                </div>
-              </div>
-            </div>
+            <SideBar theme={theme} setTheme={setTheme} />
           </div>
           <div className="TopContainer">
             <div className={`hamburger-${menu} Menu`}>
@@ -172,7 +120,7 @@ const WeatherApp = () => {
               </div>
             </div>
           </div>
-          <div>
+          <div className="weatherImageContainer">
             {isLoading ? (
               <BeatLoader color="#252827" size={10} />
             ) : (

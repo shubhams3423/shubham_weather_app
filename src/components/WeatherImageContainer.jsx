@@ -1,5 +1,5 @@
 import React from "react";
-
+import "../ComponentCss/WeatherImage.css";
 const WeatherImageContainer = ({ weatherText }) => {
   return (
     <div className="imageContainer">
@@ -25,6 +25,8 @@ const WeatherImageContainer = ({ weatherText }) => {
             ? "https://cdn-icons-png.flaticon.com/512/4724/4724091.png"
             : weatherText === "Light drizzle"
             ? "https://cdn-icons-png.flaticon.com/512/4724/4724091.png"
+            : weatherText === "Overcast"
+            ? "https://cdn.iconscout.com/icon/free/png-256/free-cloudy-2960374-2451828.png"
             : "https://via.placeholder.com/400"
         }
         alt=""
