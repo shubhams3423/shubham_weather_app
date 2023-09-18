@@ -2,126 +2,145 @@ html {
   height: 100%;
   width: 100%;
   overflow: hidden;
-} 
+}
+
 * {
   margin: 0px;
   padding: 0px;
 }
 
-body { 
+body {
   display: flex;
   justify-content: center;
   align-items: center;
-   font-family: sans-serif;
+  font-family: sans-serif;
 }
- main{
-   width: 100vw; 
+
+main {
+  width: 100vw;
   height: 100vh;
-   display: flex;
+  display: flex;
   align-items: center;
-  justify-content: center;  
- }
-.main-light {   
+  justify-content: center;
+}
+
+.main-light {
   background-color: black;
 }
-.main-dark {  
-  background-color: white; 
-  color: white; 
+
+.main-dark {
+  background-color: white;
+  color: white;
 }
-.weatherApp{
+
+.weatherApp {
   padding: 1.6rem;
   border-radius: 10px;
   width: 385px;
   margin: 1rem;
   display: flex;
   flex-direction: column;
-  gap: 1.3rem;
   height: 531px;
 }
 
-.hamburger-block{
+.hamburger-block {
   z-index: 1;
-    margin-top: -21px;
-    margin-left: -8px;
-    color: white;
-} 
+  margin-top: -21px;
+  margin-left: -8px;
+  color: white;
+}
+
 .weatherApp-light {
-  background-color: white; 
+  background-color: white;
 }
+
 .weatherApp-dark {
-  background-color: #0e2954; 
+  background-color: #0e2954;
 }
- 
-.Menu{
+
+.Menu {
   font-size: 2rem;
   display: flex;
   align-items: center;
   cursor: pointer;
   margin-right: 10px
 }
-.TopContainer{
-display: flex;
-align-items: center;
+
+.TopContainer {
+  display: flex;
+  align-items: center;
 }
+
 .inputSection {
   display: flex;
   align-items: center;
 }
-.inputText{
+
+.inputText {
   width: 100%;
   border-radius: 10px;
-  padding: 9px 29px 9px 10px; 
+  padding: 9px 29px 9px 10px;
   border: 0px;
   font-size: 18px;
   outline: none;
 }
+
 .inputText-dark {
-  background-color: white; 
+  background-color: white;
 }
+
 .inputText-light {
-   color: black;
-   background-color: #62d3d36b;
+  color: black;
+  background-color: #62d3d36b;
 }
-.location-icon-dark{
-color: black;
+
+.location-icon-dark {
+  color: black;
 }
+
 .location-icon {
   position: relative;
   right: 21px;
   width: 0px;
   cursor: pointer;
 }
-.topSection{
-     width: 100%;
+
+.topSection {
+  width: 100%;
 }
- 
+
 .weatherImg {
   width: 100%;
   height: 100%;
 }
-.searchIcon{
+
+.searchIcon {
   display: flex;
   align-items: center;
   justify-content: center;
   color: black;
-  margin-left: 1rem;
+  margin-left: 0.8rem;
   border-radius: 50%;
   width: 50px;
   height: 37px;
   cursor: pointer;
-} 
-.searchIcon-light { 
-  background-color:#62d3d36b ; 
 }
-.searchIcon-dark { 
+
+.searchIcon-light {
+  background-color: #62d3d36b;
+}
+
+.searchIcon-dark {
   background-color: white;
-} 
+}
+
 .tempSubDiv {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 5px;
-} 
+}
+
 .tempSubDiv span {
   font-weight: 800;
   font-size: 3rem;
@@ -132,51 +151,61 @@ color: black;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-} 
+}
+
 .myLocation {
   padding: 4px 6px;
   border-radius: 2px;
   border: 1px solid black;
   cursor: pointer;
-} 
+}
+
 .lastSection {
   display: flex;
   justify-content: space-between;
   margin-top: 2.3rem;
 }
-.h2-removeErrorSymbol{
+
+.h2-removeErrorSymbol {
   font-weight: 800;
   font-size: 3rem;
   margin: 0px;
 }
-.h2-removeErrorSymbol-light { 
-  color: black; 
+
+.h2-removeErrorSymbol-light {
+  color: black;
 }
-.h2-removeErrorSymbol-dark { 
-  color: white; 
-} 
+
+.h2-removeErrorSymbol-dark {
+  color: white;
+}
+
 .h2-displayErrorSymbol {
   font-weight: 800;
   font-size: 3rem;
   margin: 0px;
   opacity: 60%;
   color: rgb(67, 65, 65);
-} 
-.tempSub-p-removeErrorSymbol-light{
+}
+
+.tempSub-p-removeErrorSymbol-light {
   color: #040404c2;
 }
-.tempSub-p-removeErrorSymbol-dark{
+
+.tempSub-p-removeErrorSymbol-dark {
   color: #ffffff9c;
 }
+
 .tempSub-p-removeErrorSymbol {
   text-align: center;
   font-weight: 500;
   font-size: 1.3rem;
- }
- .weatherImageContainer{
+}
+
+.weatherImageContainer {
   height: 17rem;
- }
- 
+  margin: 22px 0px;
+}
 
 .tempSub-p-displayErrorSymbol {
   text-align: center;
@@ -184,19 +213,23 @@ color: black;
   font-size: 1.2rem;
   opacity: 70%;
   color: #726f6f;
-} 
-.windIcon{
+}
+
+.windIcon {
   font-size: 2.5rem;
 }
+
 .weatherSection {
   display: flex;
   align-items: center;
   gap: 5px;
-} 
+}
+
 .weatherSection p {
   font-size: 16px;
   font-weight: 500;
-} 
+}
+
 .weatherSection span {
   font-weight: 700;
   font-size: 19px;
@@ -205,8 +238,10 @@ color: black;
 @media screen and (max-width:460px) {
   .weatherApp {
     width: auto;
-}
-.hamburgerMenu{
-  width: 11rem;
-}
+    padding: 1.2rem;
+  }
+
+  .hamburgerMenu {
+    width: 11rem;
+  }
 }

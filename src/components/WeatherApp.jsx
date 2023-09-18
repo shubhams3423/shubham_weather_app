@@ -17,7 +17,7 @@ const WeatherApp = () => {
   const [inputName, setInputName] = useState("Pune");
   const [saveInputText, setSaveInputText] = useState("Pune");
   const [theme, setTheme] = useState("light");
-  const [menu, setMenu] = useState("none");
+  const [showSideBar, setShowSideBar] = useState(false);
 
   useEffect(() => {
     setIsLoading(true);
@@ -73,26 +73,27 @@ const WeatherApp = () => {
       }
     );
   };
-  const handleMenuSection = () => {
-    menu === "none" ? setMenu("block") : setMenu("none");
-  };
+
   return (
     <div>
       <main className={`main-${theme}`}>
         <div className={`weatherApp-${theme} weatherApp`}>
           <div
-            className={` hamburgerMenu-${theme} ${
-              menu === "none" ? "hamburgerMenuHide" : "hamburgerMenuShow"
-            } hamburgerMenu`}
+            className={
+              (showSideBar &&
+                ` hamburgerMenu-${theme}  
+              hamburgerMenu`) ||
+              ""
+            }
           >
-            <SideBar theme={theme} setTheme={setTheme} />
+            {showSideBar && <SideBar theme={theme} setTheme={setTheme} />}
           </div>
           <div className="TopContainer">
-            <div className={`hamburger-${menu} Menu`}>
-              {menu === "block" ? (
-                <RxCross2 onClick={handleMenuSection} />
+            <div className={(showSideBar && "hamburger-block Menu") || "Menu"}>
+              {!showSideBar ? (
+                <HiMenu onClick={() => setShowSideBar(true)} />
               ) : (
-                <HiMenu onClick={handleMenuSection} />
+                <RxCross2 onClick={() => setShowSideBar(false)} />
               )}
             </div>
             <div className="topSection">

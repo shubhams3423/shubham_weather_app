@@ -1,7 +1,7 @@
 import React from "react";
 import { BsFillSunFill } from "react-icons/bs";
 import { BiSolidMoon } from "react-icons/bi";
-const SideMenu = ({ theme, setTheme }) => {
+const ThemeSelector = ({ theme, setTheme }) => {
   return (
     <div className="darkLightModeContainer">
       <h2>{theme === "light" ? "Light" : "Dark"} Mode</h2>
@@ -26,4 +26,4 @@ const SideMenu = ({ theme, setTheme }) => {
   );
 };
 
-export default SideMenu;
+export default ThemeSelector;

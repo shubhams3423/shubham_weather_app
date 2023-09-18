@@ -1,19 +1,22 @@
 .dropIcon-1-dark,
 .dropIcon-2-dark,
-.dropIcon-3-dark{
-color: white;
- font-size: 2.2rem;
+.dropIcon-3-dark {
+  color: white;
+  font-size: 2.2rem;
 }
-.dropIcons{
+
+.dropIcons {
   font-size: 2.5rem;
-  
 }
-.dropIcon-1-light { 
-  color:rgba(132, 169, 233, 0.916)
+
+.dropIcon-1-light {
+  color: rgba(132, 169, 233, 0.916)
 }
-.dropIcon-2-light { 
-     color:rgb(71, 125, 218) 
+
+.dropIcon-2-light {
+  color: rgb(71, 125, 218)
 }
-.dropIcon-3-light { 
+
+.dropIcon-3-light {
   color: rgb(0, 34, 94)
 }
