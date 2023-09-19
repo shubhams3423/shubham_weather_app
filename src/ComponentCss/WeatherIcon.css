@@ -1,0 +1,19 @@
+.h3-removeErrorSymbol {
+  display: inline;
+  font-size: 27px;
+}
+
+.h3-removeErrorSymbol-light {
+  color: black;
+}
+
+.h3-removeErrorSymbol-dark {
+  color: white;
+}
+
+.h3-displayErrorSymbol {
+  display: inline;
+  font-size: 27px;
+  opacity: 70%;
+  color: gray;
+}

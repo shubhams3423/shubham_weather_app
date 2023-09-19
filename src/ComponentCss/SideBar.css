@@ -1,0 +1,62 @@
+.hamburgerMenu {
+  position: absolute;
+  height: 583px;
+  width: 13rem;
+  z-index: 1;
+  border-radius: 9px 27px 26px 9px;
+  padding: 60px 16px 16px 23px;
+  box-sizing: border-box;
+  color: white;
+  margin-top: -26px;
+  margin-left: -26px;
+}
+
+.hamburgerMenuHide {
+  display: none;
+}
+
+.hamburgerMenuShow {
+  display: block;
+}
+
+.hamburgerMenu-dark {
+  background-color: black;
+}
+
+.hamburgerMenu-light {
+  background-color: #0F2C59;
+}
+
+.darkLightModeMainContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.darkLightModeIcon {
+  cursor: pointer;
+}
+
+.darkLightModeContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.darkLightModeContainer h2 {
+  font-size: 19px;
+}
+
+.moonIcon {
+  color: white;
+}
+
+@media screen and (max-width:460px) {
+  .hamburgerMenu {
+    height: 570px;
+    margin-top: -19.5px;
+    margin-left: -20px;
+  }
+
+}

@@ -1,6 +1,7 @@
 html {
   height: 100%;
   width: 100%;
+  overflow: hidden;
 }
 
 * {
@@ -9,37 +10,92 @@ html {
 }
 
 body {
-  width: 100%;
-  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: black;
   font-family: sans-serif;
 }
 
+main {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.main-light {
+  background-color: black;
+}
+
+.main-dark {
+  background-color: white;
+  color: white;
+}
+
 .weatherApp {
-  background-color: #ffff;
-  padding: 2rem;
+  padding: 1.6rem;
   border-radius: 10px;
   width: 385px;
   margin: 1rem;
+  display: flex;
+  flex-direction: column;
+  height: 531px;
 }
 
-.searchSection {
+.hamburger-block {
+  z-index: 1;
+  margin-top: -21px;
+  margin-left: -8px;
+  color: white;
+}
+
+.weatherApp-light {
+  background-color: white;
+}
+
+.weatherApp-dark {
+  background-color: #0e2954;
+}
+
+.Menu {
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  margin-right: 10px
+}
+
+.TopContainer {
+  display: flex;
+  align-items: center;
+}
+
+.inputSection {
   display: flex;
   align-items: center;
 }
 
 .inputText {
-  background-color: #62d3d36b;
   width: 100%;
   border-radius: 10px;
   padding: 9px 29px 9px 10px;
-  ;
   border: 0px;
   font-size: 18px;
   outline: none;
+}
+
+.inputText-dark {
+  background-color: white;
+}
+
+.inputText-light {
+  color: black;
+  background-color: #62d3d36b;
+}
+
+.location-icon-dark {
+  color: black;
 }
 
 .location-icon {
@@ -49,20 +105,33 @@ body {
   cursor: pointer;
 }
 
+.topSection {
+  width: 100%;
+}
+
 .weatherImg {
   width: 100%;
+  height: 100%;
 }
 
 .searchIcon {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #62d3d361;
-  margin-left: 1rem;
+  color: black;
+  margin-left: 0.8rem;
   border-radius: 50%;
-  width: 3rem;
-  height: 2.5rem;
+  width: 50px;
+  height: 37px;
   cursor: pointer;
+}
+
+.searchIcon-light {
+  background-color: #62d3d36b;
+}
+
+.searchIcon-dark {
+  background-color: white;
 }
 
 .tempSubDiv {
@@ -94,15 +163,21 @@ body {
 .lastSection {
   display: flex;
   justify-content: space-between;
-  margin-top: 3rem;
+  margin-top: 2.3rem;
 }
 
 .h2-removeErrorSymbol {
   font-weight: 800;
   font-size: 3rem;
   margin: 0px;
-  color: black;
+}
 
+.h2-removeErrorSymbol-light {
+  color: black;
+}
+
+.h2-removeErrorSymbol-dark {
+  color: white;
 }
 
 .h2-displayErrorSymbol {
@@ -113,25 +188,23 @@ body {
   color: rgb(67, 65, 65);
 }
 
-.h3-removeErrorSymbol {
-  display: inline;
-  font-size: 27px;
-  color: black;
-
+.tempSub-p-removeErrorSymbol-light {
+  color: #040404c2;
 }
 
-.h3-displayErrorSymbol {
-  display: inline;
-  font-size: 27px;
-  opacity: 70%;
-  color: gray;
+.tempSub-p-removeErrorSymbol-dark {
+  color: #ffffff9c;
 }
 
 .tempSub-p-removeErrorSymbol {
   text-align: center;
   font-weight: 500;
   font-size: 1.3rem;
-  color: #040404c2;
+}
+
+.weatherImageContainer {
+  height: 17rem;
+  margin: 22px 0px;
 }
 
 .tempSub-p-displayErrorSymbol {
@@ -142,20 +215,8 @@ body {
   color: #726f6f;
 }
 
-
-.dropIcon-1 {
-  font-size: 2.2rem;
-  color: rgba(96, 144, 226, 0.374)
-}
-
-.dropIcon-2 {
-  font-size: 2.2rem;
-  color: rgb(65, 95, 147)
-}
-
-.dropIcon-3 {
-  font-size: 2.2rem;
-  color: rgb(23, 91, 208)
+.windIcon {
+  font-size: 2.5rem;
 }
 
 .weatherSection {
@@ -169,7 +230,6 @@ body {
   font-weight: 500;
 }
 
-
 .weatherSection span {
   font-weight: 700;
   font-size: 19px;
@@ -178,5 +238,10 @@ body {
 @media screen and (max-width:460px) {
   .weatherApp {
     width: auto;
+    padding: 1.2rem;
+  }
+
+  .hamburgerMenu {
+    width: 11rem;
   }
 }
